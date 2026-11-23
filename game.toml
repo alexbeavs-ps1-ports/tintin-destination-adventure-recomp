@@ -1,0 +1,59 @@
+# Autofilled by tools/new_project_layout/probe_disc.py from your legal dump.
+# Review before shipping. Runtime quirks / overlay seeds still need hand work.
+
+[game]
+name = "Tintin - Destination Adventure"
+id = "SLES-03459"
+players = 1
+exe = "disc/SLES_034.59"
+disc = "disc/Tintin - Destination Adventure (Europe) (En,Fr,De,Es,It,Nl,Pt).cue"
+discs = ["disc/Tintin - Destination Adventure (Europe) (En,Fr,De,Es,It,Nl,Pt).cue"]
+disc_serials = ["SLES-03459"]
+load_address = "0x80010000"
+entry_pc = "0x80014A44"
+text_size = "0x00089000"
+stack_base = "0x801FFFF0"
+
+# Digests are for data Track 01 (first BINARY FILE / TRACK 01).
+[prepare_disc]
+out_dir = "disc"
+bin_name = "Tintin - Destination Adventure (Europe) (En,Fr,De,Es,It,Nl,Pt).bin"
+cue_name = "Tintin - Destination Adventure (Europe) (En,Fr,De,Es,It,Nl,Pt).cue"
+boot_exe = "SLES_034.59"
+known_sizes = [701947344]
+known_md5 = [
+  "99cdad7b8e783b46d904f661f05b3594",
+]
+known_sha1 = [
+  "7ee98655a13fc8e42b1e652ea955ec5ee1cb6c58",
+]
+known_crc32 = [
+  "9ff9a314",
+]
+
+[recompiler]
+bios_config = "psxrecomp/bios/SCPH5552.toml"
+seeds = "seeds/ghidra_funcs.txt"
+out_dir = "generated"
+strict = true
+
+[runtime]
+openbios = false
+bios_hle = false
+window_title = "Tintin - Destination Adventure Recompiled"
+memcard_dir = "saves"
+overlay_cache = true
+
+[video]
+renderer = "opengl"
+aspect_ratio = "4:3"
+
+[controller]
+default_mode = "digital"
+
+# Online mount gate: digests + track count + optional TOC fingerprint
+# (see docs/NETPLAY.md).
+[netplay]
+require_cue = true
+required_tracks = 1
+required_disc_fp = "001fb2b3f454c35a5686b47c44b9b160b20375273b6adfdddf178d4a9a059f29"

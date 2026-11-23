@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "id": "tintin-destination-adventure-psx",
+  "name": "Tintin - Destination Adventure",
+  "kind": "recomp",
+  "platform": "psx",
+  "source_repo": "tintin-destination-adventure-recomp",
+  "rom_identity": {
+    "crc32": [
+      "9ff9a314"
+    ],
+    "md5": [
+      "99cdad7b8e783b46d904f661f05b3594"
+    ],
+    "sha1": [
+      "7ee98655a13fc8e42b1e652ea955ec5ee1cb6c58"
+    ],
+    "disc_serials": [
+      "SLES-03459"
+    ],
+    "sizes": [
+      701947344
+    ],
+    "filenames": [
+      "Tintin - Destination Adventure (Europe) (En,Fr,De,Es,It,Nl,Pt).cue",
+      "Tintin - Destination Adventure (Europe) (En,Fr,De,Es,It,Nl,Pt).bin"
+    ],
+    "track_counts": [
+      1
+    ],
+    "disc_fps": [
+      "001fb2b3f454c35a5686b47c44b9b160b20375273b6adfdddf178d4a9a059f29"
+    ],
+    "require_cue": true
+  },
+  "rom_extensions": [
+    ".cue",
+    ".bin",
+    ".chd"
+  ],
+  "bios_identity": {
+    "required": true,
+    "name": "SCPH5552.BIN",
+    "profile": "SCPH5552",
+    "crc32": [
+      "d786f0b9"
+    ],
+    "md5": [
+      "32736f17079d0b2b7024407c39bd3050"
+    ],
+    "sha1": [
+      "f6bc2d1f5eb6593de7d089c425ac681d6fffd3f0"
+    ],
+    "sha256": [
+      "1faaa18fa820a0225e488d9f086296b8e6c46df739666093987ff7d8fd352c09"
+    ],
+    "sizes": [
+      524288
+    ],
+    "filenames": [
+      "SCPH5552.BIN"
+    ]
+  },
+  "release": {
+    "github": "alexbeavs-ps1-ports/tintin-destination-adventure-recomp",
+    "allow_prerelease": false,
+    "asset_glob": {
+      "windows-x64": "tintin-destination-adventure-*-windows-x64.zip",
+      "linux-x64": "tintin-destination-adventure-*-linux-x64.zip",
+      "macos-arm64": "tintin-destination-adventure-*-macos-arm64.zip",
+      "macos-x64": "tintin-destination-adventure-*-macos-x64.zip"
+    }
+  },
+  "launch": {
+    "windows": "tintin_destination_adventure.exe",
+    "linux": "tintin_destination_adventure",
+    "macos": "tintin_destination_adventure"
+  },
+  "build": {
+    "source": {
+      "github": "alexbeavs-ps1-ports/tintin-destination-adventure-recomp",
+      "ref": ""
+    },
+    "toolchain": {
+      "id": "cmake-clang-v1",
+      "min_version": "1.0.14"
+    },
+    "generate": {
+      "engine": "psxrecomp",
+      "config": "game.toml"
+    },
+    "cmake": {
+      "build_dir": "build",
+      "target": "psx-runtime",
+      "config": "Release"
+    }
+  }
+}
